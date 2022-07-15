@@ -47,10 +47,8 @@ function addHTML (todo) {
     todoCheck(lists);
 
     delBtns.forEach(btn => btn.addEventListener('click', todoDel));
-
     editBtns.forEach(edit => edit.addEventListener('click', todoEdit))
-
-    okBtns.forEach(ok => ok.addEventListener('click', fun1))
+    okBtns.forEach(ok => ok.addEventListener('click', editOk))
 
 }
 
@@ -67,7 +65,6 @@ add.addEventListener('click', () => {
 
     let todo = input.value;
     todo = todo.trim()
-    console.log(todo)
 
     inputControl(todo)
 })
@@ -104,7 +101,7 @@ function addTodo(todoText) {
     todo.remove();
  }
 
-
+// Check To Do
 function todoCheck(item) {
             
     for (i = 0; i < item.length; i++){
@@ -118,12 +115,9 @@ function todoCheck(item) {
                 e.target.classList.toggle('checked');
                 return
             }
-
         })
     }
 }
-
-
 
 // Input Control
 function inputControl (todo) {
@@ -136,34 +130,28 @@ function inputControl (todo) {
     }
 }
 
-
 // Edit To Do
 function todoEdit (e) {
 
         const todo = e.target.parentElement.parentElement;
         const text = todo.firstChild.nextSibling.innerHTML;
-        console.log(todo.firstChild.nextSibling.innerHTML)
         input.value = text;
         
-        fun1()
+        editOk()
 }
 
-function fun1() {
+// Edit Ok
+function editOk() {
     
     lists.forEach(list => {
         if(input.value === list.firstElementChild.textContent) {
-            console.log(list.firstElementChild.textContent)
 
             input.addEventListener('change', e => {
                 list.firstElementChild.textContent = e.target.value;
             })
-            
         }
-        
     })
 }
 
 localStorage.setItem('todo', JSON.stringify(todo));
 const todoObj = JSON.parse(localStorage.getItem('todo'));
-
-

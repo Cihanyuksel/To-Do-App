@@ -25,8 +25,6 @@ h1 {
     position: relative;
 }
 
-
-
 ul li.checked {
     background-color: rgba(36, 38, 42, 0.89) !important;
     color: white;
@@ -49,7 +47,6 @@ ul li.checked {
     background-color: rgb(128, 128, 128, .6);
     overflow: hidden;
 }
-
 
 .todo-container .todo-header {
     width: 90%;
@@ -183,5 +180,3 @@ h1:hover::before {
     left: 160px;
     border-radius: 10%;
 }
-
-
